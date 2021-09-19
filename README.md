@@ -20,7 +20,7 @@ $ git clone https://github.com/CristianEduardMihai/dpy-music-bot
 $ cd dpy-music-bot
 ```
 ```
-$ python3 -m pip install -R requirements.txt
+$ python3 -m pip install -r requirements.txt
 ```
 ### Open the config.py file and set the bot's token and prefix
 ```

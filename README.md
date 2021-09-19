@@ -26,4 +26,12 @@ $ python3 -m pip install -r requirements.txt
 ```
 $ nano config.py
 ```
+### Save using `Ctrl + O`, `Enter` and `Ctrl + X`
+
+## Running
+---
+### While in the `dpy-music-bot` folder, run the following command
+```
+$ python3 bot.py
+```
 

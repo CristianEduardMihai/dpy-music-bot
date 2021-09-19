@@ -3,9 +3,8 @@
 
 
 
-## Instalation
+## Installation
 ---
-## Linux(debian/ubuntu)
 ```
 $ sudo apt update
 $ sudo apt -y install python3

@@ -23,9 +23,11 @@ bot = commands.Bot(
     command_prefix=bot_prefix, 
     case_insensitive=True, 
     activity=discord.Activity(
-        type=discord.ActivityType.watching, 
-        name=f"{bot.command_prefix}help"
+        type=discord.ActivityType.watching,
+        name=f"{bot_prefix}help"
     )
+)
+
 bot.load_extension("cogs.music")
 
     

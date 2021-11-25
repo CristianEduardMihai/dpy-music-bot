@@ -19,23 +19,26 @@ from config import *
 
 
 
-bot = commands.Bot(command_prefix=bot_prefix, case_insensitive=True)
+bot = commands.Bot(
+    command_prefix=bot_prefix, 
+    case_insensitive=True, 
+    activity=discord.Activity(
+        type=discord.ActivityType.watching,
+        name=f"{bot_prefix}help"
+    )
+)
 
+bot.load_extension("cogs.music")
 
+    
 @bot.event
 async def on_ready():
-    await bot.wait_until_ready()
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{bot.command_prefix}help"))
-    bot.load_extension("cogs.music")
     print('THE BOT IS READY')
 
 @bot.event
 async def on_command_error(ctx, error):
-    if isinstance(error, commands.MissingPermissions):
-        await ctx.send("Missing Permission", delete_after=2.0)
-    elif isinstance(error, commands.MissingAnyRole):
-        await ctx.send("Missing Permission", delete_after=2.0)
-    elif isinstance(error, commands.MissingRole):
+    if isinstance(error, (commands.MissingPermissions,
+              commands.MissingAnyRole, commands.MissingRole)):
         await ctx.send("Missing Permission", delete_after=2.0)
     elif isinstance(error, commands.MissingRequiredArgument):
         await ctx.send("Missing Required Argument", delete_after=2.0)
